@@ -7,3 +7,6 @@ Day1–4 done.
 
 ## How to run
 python3 scripts/python_api_example.py
+
+## Plan breakdown
+![Plan counts](./plan_counts.png)
