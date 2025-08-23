@@ -10,3 +10,7 @@ python3 scripts/python_api_example.py
 
 ## Plan breakdown
 ![Plan counts](./plan_counts.png)
+
+## Risk by plan
+
+![Risk by plan](outputs/risk_by_plan.png)
