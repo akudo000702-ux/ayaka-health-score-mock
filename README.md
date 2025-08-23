@@ -14,3 +14,7 @@ python3 scripts/python_api_example.py
 ## Risk by plan
 
 ![Risk by plan](outputs/risk_by_plan.png)
+
+## MRR at Risk by plan
+
+![MRR at Risk by plan](outputs/risk_by_plan_mrr.png)
