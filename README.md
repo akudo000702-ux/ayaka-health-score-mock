@@ -43,3 +43,65 @@ sqlite3 -header -csv day6.db < sql/plan_counts.sql    > outputs/plan_counts.csv
 sqlite3 -header -csv day6.db < sql/risk_by_plan.sql   > outputs/risk_by_plan.csv
 sqlite3 -header -csv day6.db < sql/priority_top10.sql > outputs/priority_top10.csv
 \`\`\`
+## 可視化リンク
+- [Plan counts](outputs/plan_counts.csv)
+- [Risk by plan](outputs/risk_by_plan.csv)
+- [Priority top10](outputs/priority_top10.csv)
+
+```bash
+sqlite3 -header -csv day6.db < sql/plan_counts.sql     > outputs/plan_counts.csv
+sqlite3 -header -csv day6.db < sql/risk_by_plan.sql    > outputs/risk_by_plan.csv
+sqlite3 -header -csv day6.db < sql/priority_top10.sql  > outputs/priority_top10.csv
+## 可視化
+
+[![Plan counts](outputs/plan_counts.png)](outputs/plan_counts.png)  
+[![Risk rate](outputs/risk_by_plan.png)](outputs/risk_by_plan.png)  
+[![MRR at Risk](outputs/risk_by_plan_mrr.png)](outputs/risk_by_plan_mrr.png)
+
+## データ出力物
+- [Plan counts](outputs/plan_counts.csv)
+- [Risk by plan](outputs/risk_by_plan.csv)
+- [Priority top10](outputs/priority_top10.csv)
+
+## 再現手順（SQL → CSV）
+```bash
+sqlite3 -header -csv day6.db < sql/plan_counts.sql     > outputs/plan_counts.csv
+sqlite3 -header -csv day6.db < sql/risk_by_plan.sql    > outputs/risk_by_plan.csv
+sqlite3 -header -csv day6.db < sql/priority_top10.sql  > outputs/priority_top10.csv
+
+echo "\![Plan counts](outputs/plan_counts.png)" >> README.md
+## 可視化
+
+[![Plan counts](outputs/plan_counts.png)](outputs/plan_counts.png)  
+[![Risk rate](outputs/risk_by_plan.png)](outputs/risk_by_plan.png)  
+[![MRR at Risk](outputs/risk_by_plan_mrr.png)](outputs/risk_by_plan_mrr.png)
+
+## データ出力物
+- [Plan counts](outputs/plan_counts.csv)
+- [Risk by plan](outputs/risk_by_plan.csv)
+- [Priority top10](outputs/priority_top10.csv)
+
+## 再現手順（SQL → CSV）
+```bash
+sqlite3 -header -csv day6.db < sql/plan_counts.sql     > outputs/plan_counts.csv
+sqlite3 -header -csv day6.db < sql/risk_by_plan.sql    > outputs/risk_by_plan.csv
+sqlite3 -header -csv day6.db < sql/priority_top10.sql  > outputs/priority_top10.csv
+
+cat >> README.md <<'MD'
+## 可視化
+![Plan counts](outputs/plan_counts.png)
+![Risk rate](outputs/risk_by_plan.png)
+![MRR at Risk](outputs/risk_by_plan_mrr.png)
+
+## データ出力物
+- [Plan counts](outputs/plan_counts.csv)
+- [Risk by plan](outputs/risk_by_plan.csv)
+- [Priority top10](outputs/priority_top10.csv)
+
+## 再現手順 (SQL→CSV)
+```bash
+sqlite3 -header -csv day6.db < sql/plan_counts.sql     > outputs/plan_counts.csv
+sqlite3 -header -csv day6.db < sql/risk_by_plan.sql    > outputs/risk_by_plan.csv
+sqlite3 -header -csv day6.db < sql/priority_top10.sql  > outputs/priority_top10.csv
+git status
+git status
