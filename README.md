@@ -30,3 +30,8 @@ python3 scripts/python_api_example.py
 - Proはリスク率・金額インパクトとも最大 → 最優先でフォロー導線（休眠前の接点強化）
 - Basicは件数多め → アクティブ化施策の標準化（メール・FAQ・オンボ動画）
 - Freeは影響小：上位プランへの導線テストを小さく回す
+
+## 可視化
+![Plan counts](plan_counts.png)
+![Risk rate](outputs/risk_by_plan.png)
+![MRR at Risk](outputs/risk_by_plan_mrr.png)
