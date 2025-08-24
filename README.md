@@ -131,3 +131,6 @@ git status
 ![Risk](outputs/risk_by_plan.png)
 ![MRR at Risk](outputs/risk_by_plan_mrr.png)
 ![Band](outputs/plan_band_stacked.png)
+
+## Reports
+- [Plan summary](reports/plan_counts.md)
