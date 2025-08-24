@@ -105,3 +105,20 @@ sqlite3 -header -csv day6.db < sql/risk_by_plan.sql    > outputs/risk_by_plan.cs
 sqlite3 -header -csv day6.db < sql/priority_top10.sql  > outputs/priority_top10.csv
 git status
 git status
+
+## Health score
+**定義（0–100）**  
+- engagement = `min(tickets_last_30d, 10)/10`  
+- recency = `last_login_days_ago` が 0日=1 → 30日=0 へ線形  
+- active = `active_flag`（1/0）  
+- score = `round(100*(0.5*engagement + 0.4*recency + 0.1*active))`  
+- band: **Green (>=80)** / **Amber (>=60)** / **Red (<60)**
+
+### Distribution / by plan
+![Bands](outputs/score_by_band.png)
+![Avg by plan](outputs/avg_score_by_plan.png)
+
+### CSV
+- [Health scores](outputs/health_scores.csv)  
+- [Score by band](outputs/score_by_band.csv)  
+- [Priority top10 by low score & MRR](outputs/health_priority_top10.csv)
