@@ -125,3 +125,9 @@ git status
 
 ## Band distribution by plan
 ![Band by plan](outputs/plan_band_stacked.png)
+
+## 可視化
+![Plan](outputs/plan_counts.png)
+![Risk](outputs/risk_by_plan.png)
+![MRR at Risk](outputs/risk_by_plan_mrr.png)
+![Band](outputs/plan_band_stacked.png)

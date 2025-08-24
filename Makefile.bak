@@ -1,0 +1,45 @@
+DB := day6.db
+SQL_DIR := sql
+OUT_DIR := outputs
+CSV_TARGETS := \
+$(OUT_DIR)/plan_counts.csv \
+$(OUT_DIR)/risk_by_plan.csv \
+$(OUT_DIR)/priority_top10.csv \
+$(OUT_DIR)/plan_band_breakdown.csv
+PNG_TARGETS := \
+$(OUT_DIR)/plan_counts.png \
+$(OUT_DIR)/risk_by_plan.png \
+$(OUT_DIR)/risk_by_plan_mrr.png \
+$(OUT_DIR)/plan_band_stacked.png
+.PHONY: all csv charts clean help publish open
+all: csv charts
+help:
+@echo "make csv
+@echo "make charts
+@echo "make all
+@echo "make publish MSG='message'
+@echo "make clean
+@echo "make open
+$(OUT_DIR):
+mkdir -p $(OUT_DIR)
+$(OUT_DIR)/%.csv: $(SQL_DIR)/%.sql | $(OUT_DIR)
+sqlite3 -header -csv $(DB) < $< > $@
+csv: $(CSV_TARGETS)
+$(OUT_DIR)/plan_counts.png: $(OUT_DIR)/plan_counts.csv scripts/plot_plan_counts.py
+python3 scripts/plot_plan_counts.py $< $@
+$(OUT_DIR)/risk_by_plan.png: $(OUT_DIR)/risk_by_plan.csv scripts/plot_risk_by_plan.py
+python3 scripts/plot_risk_by_plan.py $< $@
+$(OUT_DIR)/risk_by_plan_mrr.png: $(OUT_DIR)/risk_by_plan.csv scripts/plot_risk_mrr.py
+python3 scripts/plot_risk_mrr.py $< $@
+$(OUT_DIR)/plan_band_stacked.png: $(OUT_DIR)/plan_band_breakdown.csv scripts/plot_band_stacked.py
+python3 scripts/plot_band_stacked.py $< $@
+charts: $(PNG_TARGETS)
+publish:
+@test "$(MSG)" != "" || (echo "USAGE: make publish MSG='your message'"; exit 1)
+git add $(OUT_DIR)/*.csv $(OUT_DIR)/*.png Makefile scripts || true
+git commit -m "$(MSG)"
+git push
+open: $(OUT_DIR)/plan_counts.png
+open $(OUT_DIR)/plan_counts.png
+clean:
+rm -f $(OUT_DIR)/*.csv $(OUT_DIR)/*.png
