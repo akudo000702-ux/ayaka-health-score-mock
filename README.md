@@ -122,3 +122,6 @@ git status
 - [Health scores](outputs/health_scores.csv)  
 - [Score by band](outputs/score_by_band.csv)  
 - [Priority top10 by low score & MRR](outputs/health_priority_top10.csv)
+
+## Band distribution by plan
+![Band by plan](outputs/plan_band_stacked.png)
