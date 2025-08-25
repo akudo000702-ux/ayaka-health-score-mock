@@ -134,3 +134,6 @@ git status
 
 ## Reports
 - [Plan summary](reports/plan_counts.md)
+
+## Reports
+- [Plan summary](reports/plan_counts.md)
